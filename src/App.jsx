@@ -8,7 +8,7 @@ export const App = () => (
       <div className="box">
         <div className="field">
           {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-          <label htmlFor="search-query" className="label">
+          <label htmlFor="search-query" className="label" onChange={() => {}}>
             Search movie
           </label>
 
