@@ -4,11 +4,14 @@ import { MoviesList } from './components/MoviesList';
 import moviesFromServer from './api/movies.json';
 
 export const App = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const filterBy = movie =>
-    movie.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    movie.description.toLowerCase().includes(searchQuery.toLowerCase());
+  const [query, setQuery] = useState('');
 
+  // Function to filter movies based on the search query
+  const filterBy = movie =>
+    movie.title.toLowerCase().includes(query.toLowerCase()) ||
+    movie.description.toLowerCase().includes(query.toLowerCase());
+
+  // Main application structure
   return (
     <div className="page">
       <div className="page-content">
@@ -22,7 +25,7 @@ export const App = () => {
               <input
                 onChange={event => {
                   filterBy(event.target.value);
-                  setSearchQuery(event.target.value);
+                  setQuery(event.target.value);
                 }}
                 type="text"
                 id="search-query"
